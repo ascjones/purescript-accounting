@@ -14,5 +14,8 @@
     "purescript-console": "^0.1.0",
     "accounting.js": "~0.4.1",
     "purescript-functions": "~0.1.0"
+  },
+  "devDependencies": {
+    "purescript-test-unit": "~4.1.0"
   }
 }
