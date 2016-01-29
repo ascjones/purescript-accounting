@@ -1,0 +1,29 @@
+{
+  "name": "purescript-accounting",
+  "version": "0.0.1",
+  "description": "FFI Bindings for Accounting",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "accounting": "^0.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ascjones/purescript-accounting.git"
+  },
+  "keywords": [
+    "accounting"
+  ],
+  "author": "Andrew Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ascjones/purescript-accounting/issues"
+  },
+  "homepage": "https://github.com/ascjones/purescript-accounting#readme"
+}
