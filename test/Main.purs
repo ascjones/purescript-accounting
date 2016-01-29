@@ -4,9 +4,8 @@ import Prelude
 
 import Control.Monad.Eff.Class (liftEff)
 
-import Test.Unit (TestUnit(), test, runTest)
+import Test.Unit (test, runTest)
 import Test.Unit.Assert as Assert
-import Test.Unit.Console
 
 import Accounting (formatMoney, formatMoney_, currencySettings)
 
@@ -16,5 +15,8 @@ main = runTest do
     let result = formatMoney_ 10000.0
     Assert.assert "Formats number as currency" $ result == "$10,000.00"
   test "Format Money with custom symbol" do
-    let result = formatMoney 10000.0 currencySettings { symbol = '£' }
+    let result = formatMoney 10000.0 currencySettings { symbol = "£" }
     Assert.assert "Formats number as currency" $ result == "£10,000.00"
+  test "Format Money with empty symbol" do
+    let result = formatMoney 10000.0 currencySettings { symbol = "" }
+    Assert.assert "Formats number as currency" $ result == "10,000.00"

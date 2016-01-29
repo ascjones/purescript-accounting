@@ -5,7 +5,7 @@ import Prelude
 import Data.Function
 
 type CurrencySettings =
-  { symbol    :: Char
+  { symbol    :: String
   , format    :: String
   , decimal   :: Char
   , thousand  :: Char
@@ -24,7 +24,7 @@ type CurrencySettings =
 
 currencySettings :: CurrencySettings
 currencySettings =
-  { symbol : '$'
+  { symbol : "$"
   , format : "%s%v"
   , decimal : '.'
   , thousand : ','
