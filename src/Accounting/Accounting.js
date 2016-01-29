@@ -3,6 +3,6 @@
 
 // module Accounting
 
-exports.formatMoneyImpl = function (number, symbol, precision, thousand, decimal, format) {
-  return require('accounting').formatMoney(number, symbol, precision, thousand, decimal, format);
+exports.formatMoneyImpl = function (number, settings) {
+  return require('accounting').formatMoney(number, settings);
 };

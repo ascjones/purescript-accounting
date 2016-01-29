@@ -5,23 +5,36 @@ import Prelude
 import Data.Function
 
 type CurrencySettings =
-  { symbol    :: String
+  { symbol    :: Char
   , format    :: String
   , decimal   :: Char
   , thousand  :: Char
   , precision :: Int
   }
 
-defaultCurrencySettings :: CurrencySettings
-defaultCurrencySettings =
-  { symbol : "$"
+-- data CurrencyFormat
+--   = Format String
+--   | FormatSettings CurrencyFormatSettings
+
+-- type CurrencyFormatSettings =
+--   { pos :: String
+--   , neg :: String
+--   , zero :: String
+--   }
+
+currencySettings :: CurrencySettings
+currencySettings =
+  { symbol : '$'
   , format : "%s%v"
   , decimal : '.'
   , thousand : ','
   , precision : 2
   }
 
-formatMoney :: Number -> String -> Int -> Char -> Char -> String -> String
-formatMoney n sym prec thou dec fmt = runFn6 formatMoneyImpl n sym prec thou dec fmt
+formatMoney_ :: Number -> String
+formatMoney_ n = formatMoney n currencySettings
 
-foreign import formatMoneyImpl :: Fn6 Number String Int Char Char String String
+formatMoney :: Number -> CurrencySettings -> String
+formatMoney n settings = runFn2 formatMoneyImpl n settings
+
+foreign import formatMoneyImpl :: Fn2 Number CurrencySettings String
