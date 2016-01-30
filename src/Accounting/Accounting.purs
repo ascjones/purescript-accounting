@@ -37,4 +37,11 @@ formatMoney_ n = formatMoney n currencySettings
 formatMoney :: Number -> CurrencySettings -> String
 formatMoney n settings = runFn2 formatMoneyImpl n settings
 
+unformat_ :: String -> Number
+unformat_ v = unformat v '.'
+
+unformat :: String -> Char -> Number
+unformat v dec = runFn2 unformatImpl v dec
+
 foreign import formatMoneyImpl :: Fn2 Number CurrencySettings String
+foreign import unformatImpl :: Fn2 String Char Number
